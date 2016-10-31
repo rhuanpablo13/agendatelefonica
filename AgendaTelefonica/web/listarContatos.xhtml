@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <title>Lista de contatos</title>
+        <link href="../css/estilo.css" type="text/css" rel="stylesheet"/>
+    </h:head>
+
+    <h:body class="listaBody">
+        <!-- Página de apresentar os contatos -->
+        <b:container class="listaContainer" >
+            <h:form>                
+                <h:outputText value="#{usuarioMB.cabecalho()}" style="margin-left:  80%;" />
+                <b:commandButton value="Loggout" 
+                                 action="#{usuarioMB.logout()}"/>&nbsp;&nbsp;&nbsp;
+                
+                <b:commandButton value="Configuração" rendered="#{usuarioMB.configAdmin}"
+                                 action="configuracoes.xhtml"/>
+                <br></br>
+                <br></br>
+                <br></br>
+                                 
+                <b:dataTable value="#{contatoMB.contatos}" var="contato" 
+                             fixedHeader="true" responsive="true" class="listaDataTable">
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Nome: "/>
+                        </f:facet>
+                        <h:outputText value="#{contato.nome}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Telefone: "/>
+                        </f:facet>
+                        <h:outputText value="#{contato.telefone}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Endereço: "/>
+                        </f:facet>
+                        <h:outputText value="#{contato.endereco}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Email: "/>
+                        </f:facet>
+                        <h:outputText value="#{contato.email}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputLabel value="Ações"/>
+                        </f:facet>
+                        <b:commandButton actionListener="#{contatoMB.excluir(contato)}"                                       
+                                         value="Excluir"                                                                                   
+                                         icon-awesome="trash"/>&nbsp;&nbsp;&nbsp;
+                        
+                        <b:commandButton action="editarContato" 
+                                         actionListener="#{contatoMB.selecionarContato(contato)}" 
+                                         iconAwesome="pencil" 
+                                         value="Editar"/>
+                    </h:column>                   
+                </b:dataTable>
+                <b:commandButton action="cadastroContato.xhtml"                                  
+                                 iconAwesome="plus" 
+                                 value="Novo Contato"
+                                 immediate="true"/>
+            </h:form>
+        </b:container>
+    </h:body>
+</html>
+

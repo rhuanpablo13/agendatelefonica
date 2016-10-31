@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Editar Contato</title>
+        <link href="../css/estilo.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+
+    <h:body class="body">
+
+        <b:container>
+            <h:form class="formEditarContato">
+                
+                <h:outputLabel value="Contato para editar: "/>
+                <h:outputText value="#{contatoMB.contatoBackup.nome}"/><br></br><br></br>
+
+                <b:row>
+                    <b:inputText value="#{contatoMB.contato.nome}"
+                                 required="true"
+                                 required-message="Campo nome obrigatório"
+                                 span="8"
+                                 label="Nome"
+                                 id="nome"/>
+                    <b:column>
+                        <b:messages for="nome" span="8"/>
+                    </b:column>
+                    <b:inputText value="#{contatoMB.contato.telefone}"                                 
+                                 required="true"
+                                 required-message="Campo telefone obrigatório"
+                                 span="8"
+                                 label="Telefone"
+                                 id="telefone"/>
+                    <b:column>
+                        <b:messages for="telefone" span="8"/>
+                    </b:column>                    
+
+                    <b:inputText value="#{contatoMB.contato.email}"
+                                 label="Email"
+                                 span="8"/>
+
+                    <b:inputText value="#{contatoMB.contato.endereco}"                                 
+                                 label="Endereço"
+                                 span="8"/>
+
+                </b:row>
+
+                <b:row >&nbsp;&nbsp;&nbsp;
+                    <b:commandButton actionListener="#{contatoMB.editar()}" 
+                                     action="listarContatos" 
+                                     value="atualizar"
+                                     look="sucess"
+                                     />&nbsp;&nbsp;&nbsp;
+                    <b:commandButton action="listarContatos" 
+                                     value="Cancelar"
+                                     immediate="true"
+                                     />
+
+                </b:row>
+            </h:form>
+        </b:container>
+    </h:body>
+</html>
+

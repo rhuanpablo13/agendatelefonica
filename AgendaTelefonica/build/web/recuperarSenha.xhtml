@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <title>Recuperar Senha</title> 
+        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>  
+    </h:head>
+    <h:body class="body"> 
+        
+        <b:container>
+            <a href="recuperarSenha.xhtml"></a>
+        
+            
+            <!-- Formulário de recuperar de senha-->             
+            <h:form class="cadastroContato">
+                <h3>Recuperar senha</h3><br></br>
+                <b:row>
+                    <b:inputText value="#{recuperarSenha.email}"
+                                 required="true"
+                                 requiredMessage="Email obrigatório"
+                                 label="Email"
+                                 span="8"
+                                 id="email">
+                    <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                    </b:inputText>
+                    <b:column>
+                        <b:messages span="8"/>
+                    </b:column>                         
+                </b:row>
+                <b:row>
+                    <b:column>
+                    <b:commandButton value="Recuperar" 
+                                     action="login"
+                                     actionListener="#{recuperarSenha.enviarEmail()}"                                 
+                                     icon-awesome="mail"/>
+                    </b:column>
+                </b:row>                
+            </h:form>
+        </b:container>
+    </h:body>
+</html>
+

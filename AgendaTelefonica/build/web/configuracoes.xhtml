@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <title>Configurações</title>
+        <meta name="author" content="Rhuan Pablo"></meta>
+        <link href="../css/estilo.css" rel="stylesheet" type="text/css"/> 
+        
+    </h:head>
+
+    <h:body styleClass="body">
+        <b:container>
+            <h:form styleClass="formLogin">
+
+                <h3 style="border-left: 20%">Configurações</h3>
+                
+                <b:inputSecret id="senhaAntiga"
+                               label="Antiga senha"
+                               value="#{usuarioMB.usuario.senha}"
+                               required="true"
+                               requiredMessage="Senha obrigatório">
+                </b:inputSecret>
+                
+                <b:inputSecret id="senhaNova"
+                               label="Nova senha"
+                               value="#{usuarioMB.repeteSenha}"
+                               required="true"
+                               requiredMessage="Senha obrigatório">
+                </b:inputSecret>
+                <b:messages/>
+                
+                <b:commandButton value="Atualizar"                                 
+                                 action="#{usuarioMB.atualizarSenha()}" />&nbsp;&nbsp;                
+                <b:commandButton value="Cancelar"
+                                 action="listarContatos.xhtml"
+                                 immediate="true"/><br></br>                
+                
+            </h:form>
+        </b:container>
+    </h:body>
+</html>
+

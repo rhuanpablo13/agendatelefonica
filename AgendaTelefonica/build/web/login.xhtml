@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <title>Entrar - Agenda Telefônica</title>
+        <meta name="author" content="Rhuan Pablo"></meta>
+        <link href="../css/estilo.css" rel="stylesheet" type="text/css"/> 
+        
+    </h:head>
+
+    <h:body styleClass="body">
+        <b:container>
+            <h:form styleClass="formLogin">
+
+                <h2 class="form-signin-heading">Entrar</h2>
+                <b:inputText id="email"
+                             placeholder="Email"
+                             value="#{usuarioMB.usuario.email}"
+                             required="true"
+                             requiredMessage="Email obrigatório">
+                    <f:facet name="prepend">
+                        <b:icon name="user" />
+                    </f:facet>
+                </b:inputText>
+
+                <b:messages for="email"/>
+
+                <b:inputSecret id="senha" 
+                               placeholder="Senha"
+                               value="#{usuarioMB.usuario.senha}"
+                               required="true"
+                               requiredMessage="Senha obrigatório">
+                    <f:facet name="prepend">
+                        <b:iconAwesome name="key" />
+                    </f:facet>
+                </b:inputSecret>
+                <b:messages for="senha"/>                
+                
+                <b:commandButton value="Entrar"                                 
+                                 action="#{usuarioMB.login()}" />&nbsp;&nbsp;                
+                <b:commandButton value="Cadastrar"
+                                 action="cadastro"
+                                 immediate="true"/><br></br>                
+                
+                <b:navLink value="Esqueci minha senha" href="recuperarSenha.xhtml" immediate="true"/>
+                
+                <b:messages/>
+            </h:form>
+        </b:container>
+    </h:body>
+</html>
+

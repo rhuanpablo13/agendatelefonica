@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+   
+    
+    
+    
+    <!-- login -> cadastro usuario -->
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cadastro</from-outcome>
+            <to-view-id>/cadastroUsuario.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+    <!-- lista contatos -> editar contato -->
+    <navigation-rule>
+        <from-view-id>/listarContatos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>editarContato</from-outcome>
+            <to-view-id>/editarContato.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <!-- lista contatos -> cadastro contato -->
+    <navigation-rule>
+        <from-view-id>/listarContatos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cadastroContato</from-outcome>
+            <to-view-id>/cadastroContato.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+    <!-- cadastro contato -> lista contatos-->
+    <navigation-rule>
+        <from-view-id>/cadastroContato.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listarContatos</from-outcome>
+            <to-view-id>/listarContatos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <!-- editar contato -> lista contatos-->
+    <navigation-rule>
+        <from-view-id>/editarContato.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listarContatos</from-outcome>
+            <to-view-id>/listarContatos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/admin.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>excluir</from-outcome>
+            <to-view-id>/admin.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
+
